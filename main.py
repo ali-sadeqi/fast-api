@@ -6,7 +6,7 @@ import schemas , models
 from fastapi.templating import Jinja2Templates
 app = FastAPI() 
 
-models.Base.metadata.create_all(bind= engine)
+
 class Person(BaseModel):
     name : str 
     age : int 
@@ -35,4 +35,4 @@ def get_db():
     try:
         yield db
     finally:
-        dc.close()
+        db.close()
